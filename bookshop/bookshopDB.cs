@@ -4,6 +4,7 @@ namespace bookshop
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Collections.Generic;
 
     public partial class bookshopDB : DbContext
     {
@@ -12,21 +13,23 @@ namespace bookshop
         {
         }
 
-        public virtual DbSet<user> user { get; set; }
-
+        public virtual DbSet<book>  book { get; set; }
+        public virtual DbSet<genre> genre { get; set; }
+        public virtual DbSet<author> author { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<user>()
-                .Property(e => e.name)
+            modelBuilder.Entity<book>()
+                .Property(e => e.Title)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<user>()
-                .Property(e => e.password)
+            modelBuilder.Entity<genre>()
+                .Property(e => e.Name)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<user>()
-                .Property(e => e.permission)
+            modelBuilder.Entity<genre>()
+                .Property(e => e.Description)
                 .IsUnicode(false);
         }
+
     }
 }

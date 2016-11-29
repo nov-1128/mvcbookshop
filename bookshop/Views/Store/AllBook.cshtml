@@ -1,0 +1,15 @@
+﻿@model bookshop.genre
+@{
+    ViewBag.Title = "书籍种类";
+}
+
+<h2>书籍种类： @Model.Name </h2>
+
+<ul>
+    @foreach (var book in Model.book)
+    {
+        <li>
+            @book.Title
+        </li>
+    }
+</ul>

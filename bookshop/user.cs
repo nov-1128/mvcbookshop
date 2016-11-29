@@ -11,7 +11,7 @@ namespace bookshop
     {
         [Key]
         [StringLength(30)]
-        public string name { get; set; }
+        public string username { get; set; }
 
         [Required]
         [StringLength(30)]

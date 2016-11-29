@@ -26,5 +26,20 @@ namespace bookshop.Controllers
 
             return View();
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult PostLogin(string username, string password)
+        {
+            if (username == "root" && password == "123")
+            {
+                var cookie = new HttpCookie("isauth", "true");
+                Response.Cookies.Add(cookie);
+                return RedirectToAction("Index", "bookshopDB");
+            }
+            return View();
+        }
+
     }
 }

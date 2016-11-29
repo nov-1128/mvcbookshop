@@ -1,0 +1,20 @@
+﻿@model bookshop.book
+
+@{
+    ViewBag.Title = "删除书籍";
+}
+
+<h2>删除确认</h2>
+
+<h3>你确认要删除<strong>@Model.Title</strong>这本书吗？</h3>
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("返回书籍列表", "Index")
+        </div>
+    }
+

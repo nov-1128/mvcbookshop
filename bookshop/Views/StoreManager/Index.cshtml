@@ -1,0 +1,44 @@
+﻿@model IEnumerable<bookshop.book>
+
+@{
+    ViewBag.Title = "书籍列表";
+}
+
+<h2>书籍列表</h2>
+
+<p>
+    @Html.ActionLink("添加书籍", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+           书名
+        </th>
+        <th>
+            作者
+        </th>
+        <th>
+            种类
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.Id })
+        </td>
+        <td>
+            @item.Title
+        </td>
+        <td>
+            @item.author.Name
+        </td>
+        <td>
+            @item.genre.Name
+        </td>
+    </tr>
+}
+
+</table>

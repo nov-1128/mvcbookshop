@@ -1,0 +1,44 @@
+﻿@model IEnumerable<bookshop.genre>
+
+@{
+    ViewBag.Title = "挑选书籍";
+}
+
+<h3>书籍种类展示</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    本书店一共出售如下 @Model.Count()种书籍：
+</p>
+<ul>
+    @foreach (var genre in Model)
+    {
+        <li>
+             @Html.ActionLink(genre.Name,"AllBook",new { id=genre.GenreId})
+        </li>
+    }
+</ul>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GenreId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GenreId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GenreId })
+        </td>
+    </tr>
+}
+
+</table>
