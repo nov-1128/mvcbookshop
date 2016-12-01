@@ -1,16 +1,24 @@
-﻿@model bookshop.genre
+﻿@model bookshop.book
 
 @{
-    ViewBag.Title = "挑选书籍";
+    ViewBag.Title = "书籍 - " + Model.Title;
 }
-
-<h2>书籍种类: @Model.Name </h2>
-
-<ul>
-    @foreach (var book in Model.book)
-    {
-        <li>
-            @Html.ActionLink(book.Title, "Details", new { id= book.Id})
-        </li>
-    }
-</ul>
+<h2>@Model.Title</h2>
+<div id="book-details">
+    <p>
+        <em>种类:</em>
+        @Model.genre.Name
+    </p>
+    <p>
+        <em>作者:</em>
+        @Model.author.Name
+    </p>
+    <p>
+        <em>单价:</em>
+        @String.Format("{0:F}", Model.Price)
+    </p>
+    <p>
+        @Html.ActionLink("放入购物车", "AddToCart", "shoppingcart",
+new { id = Model.Id }, "")
+    </p>
+</div>

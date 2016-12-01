@@ -1,6 +1,6 @@
 ﻿@model bookshop.genre
 @{
-    ViewBag.Title = "书籍种类";
+    ViewBag.Title = "挑选书籍";
 }
 
 <h2>书籍种类： @Model.Name </h2>
@@ -9,7 +9,7 @@
     @foreach (var book in Model.book)
     {
         <li>
-            @book.Title
+            @Html.ActionLink(book.Title, "Details", new { id=book.Id})
         </li>
     }
 </ul>

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<bookshop.genre>
+
+
+<table class="list-inline" id="categories">
+
+@foreach (var genres in Model)
+{
+    <li>
+        @Html.ActionLink(genres.Name, "AllBook", "Store", new { id = genres.GenreId }, "")
+    </li>
+}
+
+</table>

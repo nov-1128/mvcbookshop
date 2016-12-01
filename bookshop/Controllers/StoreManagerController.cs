@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace bookshop.Controllers
 {
+    //[Authorize(Roles ="103623003@qq.com")]
     public class StoreManagerController : Controller
     {
         bookshopDB storeDB = new bookshopDB();

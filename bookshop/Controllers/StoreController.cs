@@ -11,10 +11,8 @@ namespace bookshop.Controllers
         // GET: Store
         bookshopDB storeDB = new bookshopDB();
         public ActionResult Index()
-        {
-           
-            var genres = storeDB.genre.ToList();
-            
+        {         
+            var genres = storeDB.genre.ToList();  
             return View(genres);
         }
         public ActionResult AllBook(int id)
@@ -28,5 +26,12 @@ namespace bookshop.Controllers
             var book = storeDB.book.Find(id);
             return View(book);
         }
+        [ChildActionOnly]
+        public ActionResult GenreMenu()
+        {
+            var genres = storeDB.genre.ToList();
+            return PartialView(genres);
+        }
+
     }
 }

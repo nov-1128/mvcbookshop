@@ -25,11 +25,18 @@
                     <li>@Html.ActionLink("主页", "Index", "Home")</li>
                     <li>@Html.ActionLink("关于", "About", "Home")</li>
                     <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                    <li class="dropdown">@Html.ActionLink("挑选书籍", "Index", "Store")
+                        <ul class="list-inline">
+                            @{Html.RenderAction("GenreMenu", "Store");}
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("管理中心","Index","StoreManager")/li>
+                    <li>@{Html.RenderAction("CartSummary", "shoppingcart");}</li> 
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />

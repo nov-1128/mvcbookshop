@@ -1,0 +1,12 @@
+﻿@model int
+@{
+    ViewBag.Title = "订单完成";
+}
+
+<h2>订单完成</h2>
+<p>
+    感谢您的本次订购！您的订单号为： @Model
+</p>
+<p>
+    @Html.ActionLink("继续购书","Index","Store")
+</p>
